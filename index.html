@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Team Money Business é uma vitrine digital de produtos selecionados, com contacto direto e sem complicações. Encontra, escolhe e fala com o vendedor.">
+  <title>Team Money Business</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="marca" href="#inicio" aria-label="Team Money Business"><img class="logo-marca" src="assets/logo.svg" alt=""><span class="texto-marca"><strong>Team Money Business</strong></span></a>
+    <label class="caixa-pesquisa"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="campoPesquisa" type="search" placeholder="O que estás à procura?" autocomplete="off"><kbd>/</kbd></label>
+    <button class="botao-tema" id="alternarTema" type="button" aria-label="Ativar modo escuro" aria-pressed="false"><i class="icone-tema fa-solid fa-moon" aria-hidden="true"></i><span class="legenda-tema">Modo escuro</span></button>
+  </header>
+
+  <main id="aplicacao" class="conteudo-pagina">
+    <section id="inicio" class="secao-pagina ativa" aria-label="Início">
+      <div class="destaque-principal">
+        <div class="texto-destaque"><span class="rotulo-superior"><i class="fa-solid fa-circle" aria-hidden="true"></i> <span id="rotuloDigitado" class="texto-digitado" aria-hidden="true">A tua próxima descoberta</span></span><h1 aria-label="Encontra. Escolhe. Fala com o vendedor."><span id="tituloDigitado" class="texto-digitado" aria-hidden="true">Encontra. Escolhe.</span><br><em><span id="fraseDigitada" class="texto-digitado" aria-hidden="true">Fala com o vendedor.</span></em></h1><p>Produtos selecionados, com contacto direto e sem complicações.</p><a class="botao-destaque" href="#categorias">Explorar produtos <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+        <div class="arte-destaque" aria-hidden="true"><div class="sol-decorativo"></div><div class="circulo-decorativo circulo-um"></div><div class="circulo-decorativo circulo-dois"></div><div class="selo-destaque">boas<br>escolhas</div><i class="brilho-destaque fa-solid fa-sparkles"></i></div>
+      </div>
+      <div class="cabecalho-secao"><div><span class="rotulo-superior">PARA COMEÇAR</span><h2>Explora por categoria</h2></div><a href="#categorias" class="link-texto">Ver tudo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div id="categoriasInicio" class="lista-categorias"></div>
+      <div class="cabecalho-secao cabecalho-produtos"><div><span class="rotulo-superior">EM DESTAQUE</span><h2>Produtos em destaque</h2></div><a href="#categorias" class="link-texto">Todos os produtos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div id="produtosDestaque" class="grelha-produtos"></div>
+    </section>
+
+    <section id="produto" class="secao-pagina" aria-label="Detalhes do produto">
+      <div id="paginaProduto"></div>
+    </section>
+
+    <section id="categorias" class="secao-pagina" aria-label="Categorias e produtos">
+      <div class="titulo-pagina"><span class="rotulo-superior">EXPLORA O CATÁLOGO</span><h1>Produtos</h1><p>Escolhe uma categoria ou pesquisa pelo que precisas.</p></div>
+      <div id="filtrosCategoria" class="linha-filtros"></div>
+      <div id="produtosCatalogo" class="grelha-produtos"></div>
+      <div id="semProdutos" class="estado-vazio" hidden><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><h3>Não encontrámos esse produto</h3><p>Tenta outro termo ou escolhe uma categoria.</p></div>
+    </section>
+
+    <section id="responsaveis" class="secao-pagina" aria-label="Responsáveis">
+      <div class="titulo-pagina"><span class="rotulo-superior">CONTACTO DIRETO</span><h1>Os responsáveis</h1><p>Escolhe com quem queres falar. O WhatsApp abre com a mensagem pronta.</p></div>
+      <div id="listaResponsaveis" class="grelha-responsaveis"></div>
+      <div class="nota-informativa"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><p>Ao escolher um responsável, vais abrir uma conversa no WhatsApp. A compra é combinada diretamente com essa pessoa.</p></div>
+    </section>
+  </main>
+
+  <footer class="rodape-site"><a class="marca-rodape" href="#inicio">Team Money Business</a><p class="slogan-rodape">Boas escolhas, conversas diretas e oportunidades para todos.</p><nav aria-label="Informações"><a href="pages/about.html">Sobre</a><a href="pages/privacy-policy.html">Política de privacidade</a><a href="pages/contact.html">Contacto</a></nav><span class="direitos-rodape">© <span data-ano-atual></span> Team Money Business</span></footer>
+
+  <nav class="barra-navegacao" aria-label="Navegação principal">
+    <a href="#inicio" class="item-navegacao ativa" data-rota="inicio"><i class="icone-navegacao fa-solid fa-house" aria-hidden="true"></i><span>Início</span></a>
+    <a href="#categorias" class="item-navegacao" data-rota="categorias"><i class="icone-navegacao fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Categorias</span></a>
+    <a href="#responsaveis" class="item-navegacao" data-rota="responsaveis"><i class="icone-navegacao fa-solid fa-address-book" aria-hidden="true"></i><span>Responsáveis</span></a>
+  </nav>
+
+  <dialog id="janelaContacto" class="janela-contacto"><button class="botao-fechar-janela" aria-label="Fechar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button><span class="rotulo-superior">UM ÚLTIMO PASSO</span><h2>Com quem queres falar?</h2><p id="produtoContacto" class="produto-contacto"></p><div id="listaResponsaveisContacto" class="lista-responsaveis"></div></dialog>
+  <div id="aviso-flutuante" class="aviso-flutuante" role="status" aria-live="polite"></div>
+  <script src="js/theme.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
