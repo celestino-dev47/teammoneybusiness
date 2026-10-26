@@ -37,5 +37,31 @@
       "Images/iphone_17_pro/WhatsApp Image 2026-10-23 at 20.45.32.jpeg",
       "Images/iphone_17_pro/WhatsApp Image 2026-10-23 at 20.45.31.jpeg"
     ]
+  },
+  {
+    "id": "iphone-11",
+    "nome": "IPhone 11 normal 64GB",
+    "categoria": "Eletrónica",
+    "preco": 190000,
+    "negociavel": false,
+    "disponivel": true,
+    "descricao": "BATERIA 70%🔋  Tudo operacional ✅ visor novo",
+    "imagens": [
+      "Images/iphone_11/WhatsApp Image 2026-10-23 at 13.20.14.jpeg",
+      "Images/iphone_11/WhatsApp Image 2026-10-23 at 13.20.17.jpeg"
+    ]
+  },
+  {
+    "id": "iphone-16",
+    "nome": "Iphone 16 normal 128GB",
+    "categoria": "Eletrónica",
+    "preco": 620000,
+    "negociavel": false,
+    "disponivel": true,
+    "descricao": "Bateria 90%🔋 Tudo operacional ✅",
+    "imagens": [
+      "Images/iphone_16/WhatsApp Image 2026-10-23 at 13.19.39.jpeg",
+      "Images/iphone_16/WhatsApp Image 2026-10-23 at 13.19.43.jpeg"
+    ]
   }
 ]
