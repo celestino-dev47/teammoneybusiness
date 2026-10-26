@@ -40,6 +40,8 @@ Vitrine-Digital/
 |-- data/
 |   |-- produtos.json      # Dados dos produtos
 |   `-- responsaveis.json  # Contactos de atendimento
+|-- Images/
+|   `-- iphone_12_pro/     # Fotografias deste produto
 `-- assets/
     |-- logo.svg
     `-- images/
@@ -57,22 +59,25 @@ Vitrine-Digital/
 
 ## Atualizar os produtos
 
-Edita **data/produtos.json** e mant&#233;m os campos **id**, **nome**, **categoria**, **pre&#231;o**, **negociavel**, **disponivel**, **descri&#231;&#227;o** e **imagem**. Cada produto precisa de um **id** &#250;nico. O pre&#231;o &#233; num&#233;rico; **negociavel** e **disponivel** recebem **true** ou **false** sem aspas.
+Edita **data/produtos.json** e mant&#233;m os campos **id**, **nome**, **categoria**, **pre&#231;o**, **negociavel**, **disponivel**, **descri&#231;&#227;o** e **imagens**. Cada produto precisa de um **id** &#250;nico. O pre&#231;o &#233; num&#233;rico (ou **null** enquanto estiver por definir); **negociavel** e **disponivel** recebem **true** ou **false** sem aspas. A galeria apresenta no m&#225;ximo quatro imagens e adapta a grelha &#224; quantidade dispon&#237;vel.
 
 ~~~json
 {
   "id": "produto-exemplo",
   "nome": "Nome do produto",
   "categoria": "Casa",
-  "preco": 15000,
+  "preco": null,
   "negociavel": false,
   "disponivel": true,
   "descricao": "Uma descricao curta e clara.",
-  "imagem": "assets/images/produtos/produto-exemplo.jpg"
+  "imagens": [
+    "Images/iphone_12_pro/foto-1.jpeg",
+    "Images/iphone_12_pro/foto-2.jpeg"
+  ]
 }
 ~~~
 
-Guarda a fotografia em **assets/images/produtos/** e confirma que o caminho em **imagem** corresponde ao nome do ficheiro. Os respons&#225;veis e os n&#250;meros de WhatsApp est&#227;o em **data/responsaveis.json**.
+Guarda as fotografias na pasta do produto dentro de **Images/** e confirma que cada caminho em **imagens** corresponde ao nome do ficheiro. Os respons&#225;veis e os n&#250;meros de WhatsApp est&#227;o em **data/responsaveis.json**.
 
 ## Estado do projeto
 
@@ -80,4 +85,4 @@ Este projeto &#233; um prot&#243;tipo de cat&#225;logo. A disponibilidade, a neg
 
 ---
 
-<div align="center"><strong>Feito para tornar boas escolhas mais simples.</strong></div>
+<div align="center"><strong>Planear. Investir. Crescer. Realizar.</strong></div>

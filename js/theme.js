@@ -22,7 +22,7 @@
     documentoRaiz.dataset.tema = modoEscuro ? "escuro" : "claro";
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", modoEscuro ? "#151b18" : "#f7f7f2");
+      ?.setAttribute("content", modoEscuro ? "#17181b" : "#f5f3ee");
 
     if (botaoTema) {
       botaoTema.setAttribute("aria-pressed", String(modoEscuro));

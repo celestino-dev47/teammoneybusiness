@@ -1,13 +1,13 @@
 :root {
-  --texto: #202822;
-  --texto-secundario: #777e75;
-  --fundo: #f7f7f2;
-  --branco: #fff;
-  --verde: #244b3b;
-  --lima: #d9ed78;
-  --linha: #e7e9df;
-  --laranja: #eb875f;
-  --sombra: 0 18px 50px #21332412;
+  --texto: #292a2d;
+  --texto-secundario: #77756f;
+  --fundo: #f5f3ee;
+  --branco: #fffefa;
+  --verde: #566c4d;
+  --lima: #d4b66f;
+  --linha: #e4dfd5;
+  --laranja: #bd9550;
+  --sombra: 0 18px 50px #29261e14;
 }
 * {
   box-sizing: border-box;
@@ -766,9 +766,9 @@ dialog::backdrop {
   }
 }
 .logo-marca {
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
   object-fit: contain;
 }
 @media (min-width: 761px) and (max-width: 980px) {
@@ -784,15 +784,15 @@ dialog::backdrop {
 }
 :root[data-tema="escuro"] {
   color-scheme: dark;
-  --texto: #edf1e9;
-  --texto-secundario: #a6afa3;
-  --fundo: #151b18;
-  --branco: #202a24;
-  --verde: #b9d77c;
-  --lima: #d9ed78;
-  --linha: #303d34;
-  --laranja: #ef9a73;
-  --sombra: 0 18px 50px #0005;
+  --texto: #f1efe8;
+  --texto-secundario: #b7b3a9;
+  --fundo: #17181b;
+  --branco: #25262a;
+  --verde: #91a77d;
+  --lima: #d8b96f;
+  --linha: #3a3b3f;
+  --laranja: #d1aa58;
+  --sombra: 0 18px 50px #0007;
 }
 [data-tema="escuro"] body {
   background: var(--fundo);
@@ -1542,7 +1542,7 @@ body::after {
   .detalhe-produto { padding: 23px 21px 24px; gap: 10px; }
   .detalhe-produto h2 { font-size: 22px; }
   .detalhe-produto p { line-height: 1.7; }
-  .logo-marca { width: 32px; height: 32px; flex-basis: 32px; }
+  .logo-marca { width: 36px; height: 36px; flex-basis: 36px; }
   .destaque-principal { min-height: 340px; }
   .rodape-site { padding: 30px 16px 130px; }
   .rodape-site nav { gap: 18px; }
@@ -1568,25 +1568,39 @@ body::after {
   max-width: 1040px;
   margin: 0 auto;
 }
-.imagem-pagina-produto {
+.galeria-produto {
   min-width: 0;
   height: min(62vh, 540px);
   min-height: 390px;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.quadro-galeria-produto {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
   overflow: hidden;
-  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
   background: linear-gradient(145deg, #f2f2ec, #fff);
   box-shadow: var(--sombra);
 }
-.imagem-pagina-produto img {
+.quadro-galeria-produto img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
-  transition: transform .45s ease;
+  transition: transform .35s ease;
 }
-.imagem-pagina-produto:hover img { transform: scale(1.035); }
+.quadro-galeria-produto:hover img { transform: scale(1.035); }
+.galeria-produto.fotos-1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+.galeria-produto.fotos-2 { grid-template-rows: 1fr; }
+.galeria-produto.fotos-3 .quadro-galeria-produto:first-child { grid-row: span 2; }
+.galeria-produto.fotos-1 .quadro-galeria-produto { border-radius: 22px; }
 .informacao-pagina-produto {
   align-self: center;
   display: flex;
@@ -1614,7 +1628,7 @@ body::after {
 }
 .preco-pagina-produto { color: var(--verde); font: 800 27px Manrope, sans-serif; }
 .informacao-pagina-produto .botao-principal { margin-top: 3px; max-width: 320px; }
-[data-tema="escuro"] .imagem-pagina-produto { background: #f1f1eb; }
+[data-tema="escuro"] .quadro-galeria-produto { background: #f1f1eb; }
 .texto-digitado { white-space: pre-wrap; }
 .texto-digitado.digitacao-ativa::after {
   content: "";
@@ -1632,7 +1646,9 @@ body::after {
   .informacao-produto h3 { font-size: 11px; }
   .informacao-produto .preco-produto { font-size: 12px; }
   .pagina-produto-detalhe { grid-template-columns: 1fr; gap: 12px; }
-  .imagem-pagina-produto { height: min(51vh, 390px); min-height: 290px; border-radius: 18px; }
+  .galeria-produto { height: min(58vh, 430px); min-height: 320px; gap: 8px; }
+  .quadro-galeria-produto { border-radius: 13px; }
+  .galeria-produto.fotos-1 .quadro-galeria-produto { border-radius: 18px; }
   .informacao-pagina-produto { padding: 14px 5px 24px; gap: 12px; }
   .informacao-pagina-produto h1 { font-size: 29px; }
   .preco-pagina-produto { font-size: 24px; }
@@ -1642,6 +1658,88 @@ body::after {
   .animacao-entrada { opacity: 1; transform: none; transition: none; }
   .arte-destaque { animation: none; }
   .texto-digitado.digitacao-ativa::after { animation: none; }
+}
+
+/* Paleta Team Money Business: dourado, prata e um toque de verde. */
+.cabecalho { background: #f5f3eeed; border-color: var(--linha); }
+.caixa-pesquisa,
+.cartao-categoria,
+.cartao-produto,
+.cartao-responsavel,
+.opcao-filtro,
+.painel-informativo,
+.cartao-informativo { background-color: var(--branco); }
+.destaque-principal {
+  background: radial-gradient(ellipse at 78% 18%, #ffffffa0, transparent 38%),
+    linear-gradient(120deg, #f1ede4 0%, #e8e4da 55%, #e3e8df 100%);
+}
+.destaque-principal h1 em { color: var(--verde); }
+.sol-decorativo { background: linear-gradient(135deg, #e2c47f, #b68b49); }
+.circulo-um { background: #61715a; }
+.circulo-dois { background: #d8c38f; }
+.selo-destaque { color: #82662f; }
+.destaque-informativo { background: linear-gradient(120deg, #f0ece3, #e5e1d7); }
+.rodape-site { background: linear-gradient(180deg, transparent, #e9e4d9b0); }
+.botao-principal,
+.botao-destaque { box-shadow: 0 10px 24px #80672f24; }
+body::before {
+  background: radial-gradient(ellipse at 22% 34%, #83926d20 0, transparent 31%),
+    radial-gradient(ellipse at 78% 74%, #c5a35b24 0, transparent 30%);
+}
+body::after {
+  background: radial-gradient(ellipse at 75% 20%, #b8b8b322 0, transparent 31%),
+    radial-gradient(ellipse at 25% 82%, #71806018 0, transparent 33%);
+}
+[data-tema="escuro"] .cabecalho { background: #17181bed; border-color: var(--linha); }
+[data-tema="escuro"] .caixa-pesquisa,
+[data-tema="escuro"] .cartao-categoria,
+[data-tema="escuro"] .cartao-produto,
+[data-tema="escuro"] .cartao-responsavel,
+[data-tema="escuro"] .opcao-filtro,
+[data-tema="escuro"] .cartao-responsavel-contacto,
+[data-tema="escuro"] .painel-informativo,
+[data-tema="escuro"] .cartao-informativo { background-color: #25262a; }
+[data-tema="escuro"] .destaque-principal {
+  background: radial-gradient(ellipse at 78% 18%, #d5b66f20, transparent 38%),
+    linear-gradient(120deg, #29292a 0%, #242529 58%, #242a25 100%);
+}
+[data-tema="escuro"] .destaque-principal h1 em,
+[data-tema="escuro"] .marca,
+[data-tema="escuro"] .link-texto,
+[data-tema="escuro"] .rodape-site a,
+[data-tema="escuro"] .preco-produto,
+[data-tema="escuro"] .preco-detalhe,
+[data-tema="escuro"] .preco-pagina-produto { color: #dfc27f; }
+[data-tema="escuro"] .destaque-principal .rotulo-superior,
+[data-tema="escuro"] .texto-destaque > p,
+[data-tema="escuro"] .titulo-pagina p { color: #c4c1b9; }
+[data-tema="escuro"] .botao-destaque,
+[data-tema="escuro"] .botao-principal {
+  background: #d4b66f;
+  color: #252528;
+}
+[data-tema="escuro"] .botao-destaque span { color: #52634a; }
+[data-tema="escuro"] .selo-destaque { background: #292a2e; color: #e0c27d; }
+[data-tema="escuro"] .negociavel { background: #383428; color: #e0c27d; }
+[data-tema="escuro"] .area-imagem-produto .etiqueta-disponibilidade { color: #dfc27f; }
+[data-tema="escuro"] .icone-categoria,
+[data-tema="escuro"] .iniciais-responsavel,
+[data-tema="escuro"] .nota-informativa { background: #30352f; color: #c5d0b6; }
+[data-tema="escuro"] .cartao-categoria small,
+[data-tema="escuro"] .cartao-responsavel p,
+[data-tema="escuro"] .cartao-responsavel-contacto small,
+[data-tema="escuro"] .produto-contacto { color: #b8b5ad; }
+[data-tema="escuro"] .barra-navegacao {
+  background: #202125ef;
+  border-color: #ffffff20;
+}
+[data-tema="escuro"] .item-navegacao.ativa,
+[data-tema="escuro"] .item-navegacao.ativa .icone-navegacao { color: #dfc27f; }
+[data-tema="escuro"] .destaque-informativo { background: linear-gradient(120deg, #2a2a2b, #282927); }
+[data-tema="escuro"] .rodape-site { background: linear-gradient(180deg, transparent, #242529bb); }
+[data-tema="escuro"] body::before {
+  background: radial-gradient(ellipse at 22% 34%, #71805b30 0, transparent 32%),
+    radial-gradient(ellipse at 78% 74%, #c5a35b26 0, transparent 31%);
 }
 .imagem-produto,
 .imagem-detalhe-produto {

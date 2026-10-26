@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect x="2" y="2" width="60" height="60" rx="20" fill="#244B3B"/>
-  <path d="M18 21h28v7H35v19h-8V28h-9v-7Z" fill="#D9ED78"/>
-  <circle cx="46" cy="45" r="5" fill="#EB875F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="ouro" x1="20" y1="18" x2="101" y2="101" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0C27D"/>
+      <stop offset="1" stop-color="#A87D34"/>
+    </linearGradient>
+    <linearGradient id="prata" x1="27" y1="44" x2="100" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0F0EC"/>
+      <stop offset="1" stop-color="#92959A"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="34" fill="#191A1D"/>
+  <path d="M25 42C29 24 45 13 64 13c17 0 32 9 39 24" stroke="url(#ouro)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M21 67c0 25 20 46 45 46 13 0 25-5 33-14" stroke="url(#prata)" stroke-opacity=".8" stroke-width="3" stroke-linecap="round"/>
+  <text x="19" y="78" font-family="Manrope, Arial, sans-serif" font-size="43" font-weight="800" letter-spacing="-5" fill="url(#ouro)">T</text>
+  <text x="43" y="78" font-family="Manrope, Arial, sans-serif" font-size="41" font-weight="800" letter-spacing="-5" fill="url(#prata)">M</text>
+  <text x="79" y="78" font-family="Manrope, Arial, sans-serif" font-size="39" font-weight="800" letter-spacing="-4" fill="url(#prata)">B</text>
+  <rect x="72" y="91" width="6" height="16" rx="2" fill="#596F50"/>
+  <rect x="83" y="85" width="6" height="22" rx="2" fill="url(#ouro)"/>
+  <rect x="94" y="78" width="6" height="29" rx="2" fill="url(#ouro)"/>
 </svg>

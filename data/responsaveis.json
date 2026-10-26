@@ -1,8 +1,14 @@
 [
   {
+    "id": "aser",
+    "nome": "Aser Lela",
+    "funcao": "Director da Team Money Business",
+    "telefone": "+ 244 956 998 470"
+  },
+  {
     "id": "celestino",
     "nome": "Celestino Kololo",
-    "funcao": "Vendas e suporte",
+    "funcao": "Técnico de suporte",
     "telefone": "+ 244929099231"
   }
 ]

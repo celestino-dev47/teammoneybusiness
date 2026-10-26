@@ -16,8 +16,24 @@ const iconesCategoria = {
   Outros: "fa-box",
 };
 
+const categoriasCatalogo = [
+  "Eletrónica",
+  "Casa",
+  "Acessórios",
+  "Desporto",
+  "Moda",
+  "Carros",
+];
+
 const formatarPreco = (valor) =>
-  new Intl.NumberFormat("pt-PT").format(valor) + " Kz";
+  valor === null || valor === undefined || valor === ""
+    ? "Preço a definir"
+    : new Intl.NumberFormat("pt-PT").format(valor) + " Kz";
+
+const obterImagensProduto = (produto) => {
+  const imagens = Array.isArray(produto.imagens) ? produto.imagens : [produto.imagem];
+  return imagens.filter(Boolean).slice(0, 4);
+};
 
 const obterIniciais = (nome) =>
   nome
@@ -77,7 +93,10 @@ async function carregarDados() {
 function obterCategorias() {
   return [
     "Todas",
-    ...new Set(["Carros", ...estado.produtos.map((produto) => produto.categoria)]),
+    ...new Set([
+      ...categoriasCatalogo,
+      ...estado.produtos.map((produto) => produto.categoria),
+    ]),
   ];
 }
 
@@ -92,8 +111,10 @@ function criarCartaoCategoria(categoria) {
 
 function criarCartaoProduto(produto) {
   const disponibilidade = produto.disponivel ? "Disponível" : "Indisponível";
+  const imagemPrincipal = obterImagensProduto(produto)[0];
 
-  return `<article class="cartao-produto" data-produto="${produto.id}" tabindex="0" role="button" aria-label="Ver ${produto.nome}"><div class="area-imagem-produto"><img class="imagem-produto" src="${produto.imagem}" alt="Foto ilustrativa de ${produto.nome}" loading="lazy"><span class="etiqueta-disponibilidade">${disponibilidade}</span><span class="nota-foto-produto">Foto ilustrativa</span></div><div class="informacao-produto"><span class="categoria-produto">${produto.categoria}</span><h3>${produto.nome}</h3><div class="rodape-cartao-produto"><span class="preco-produto">${formatarPreco(produto.preco)}</span>${produto.negociavel ? '<span class="negociavel">Negociável</span>' : ""}</div></div></article>`;
+  const quantidadeFotos = obterImagensProduto(produto).length;
+  return `<article class="cartao-produto" data-produto="${produto.id}" tabindex="0" role="button" aria-label="Ver ${produto.nome}"><div class="area-imagem-produto"><img class="imagem-produto" src="${imagemPrincipal}" alt="Foto de ${produto.nome}" loading="lazy"><span class="etiqueta-disponibilidade">${disponibilidade}</span><span class="nota-foto-produto">${quantidadeFotos} ${quantidadeFotos === 1 ? "foto" : "fotos"}</span></div><div class="informacao-produto"><span class="categoria-produto">${produto.categoria}</span><h3>${produto.nome}</h3><div class="rodape-cartao-produto"><span class="preco-produto">${formatarPreco(produto.preco)}</span>${produto.negociavel ? '<span class="negociavel">Negociável</span>' : ""}</div></div></article>`;
 }
 
 function renderizarPagina() {
@@ -102,7 +123,6 @@ function renderizarPagina() {
   );
 
   document.querySelector("#categoriasInicio").innerHTML = categoriasDisponiveis
-    .slice(0, 4)
     .map(criarCartaoCategoria)
     .join("");
 
@@ -132,7 +152,17 @@ function renderizarPagina() {
     .map(criarCartaoProduto)
     .join("");
 
-  document.querySelector("#semProdutos").hidden = produtosFiltrados.length > 0;
+  const estadoVazio = document.querySelector("#semProdutos");
+  estadoVazio.hidden = produtosFiltrados.length > 0;
+  if (produtosFiltrados.length === 0) {
+    const procuraEspecifica = estado.pesquisa.trim().length > 0;
+    estadoVazio.querySelector("h3").textContent = procuraEspecifica
+      ? "Não encontrámos esse produto"
+      : "Ainda não há produtos nesta categoria";
+    estadoVazio.querySelector("p").textContent = procuraEspecifica
+      ? "Tenta outro termo ou escolhe uma categoria."
+      : "Quando adicionarmos produtos, eles aparecerão aqui.";
+  }
 
   document.querySelector("#listaResponsaveis").innerHTML = estado.responsaveis
     .map((responsavel) => {
@@ -180,9 +210,13 @@ function renderizarProduto(identificadorProduto) {
   const textoBotao = produto.disponivel ? "Comprar pelo WhatsApp" : "Indispon&#237;vel";
   const estadoBotao = produto.disponivel ? "" : "disabled";
   const seloNegociacao = produto.negociavel ? '<span class="negociavel">Pre&#231;o negoci&#225;vel</span>' : "";
+  const imagensProduto = obterImagensProduto(produto);
+  const imagensGaleria = imagensProduto
+    .map((imagem, indice) => `<figure class="quadro-galeria-produto"><img src="${imagem}" alt="${produto.nome}, fotografia ${indice + 1}" loading="${indice === 0 ? "eager" : "lazy"}"></figure>`)
+    .join("");
   document.title = produto.nome + " | Team Money Business";
   pagina.innerHTML = '<div class="cabecalho-pagina-produto"><a class="voltar-produtos" href="#categorias"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar aos produtos</a></div>' +
-    '<article class="pagina-produto-detalhe animacao-entrada visivel"><div class="imagem-pagina-produto"><img src="' + produto.imagem + '" alt="Foto ilustrativa de ' + produto.nome + '"><span class="nota-foto-produto">Foto ilustrativa</span></div>' +
+    '<article class="pagina-produto-detalhe animacao-entrada visivel"><div class="galeria-produto fotos-' + imagensProduto.length + '">' + imagensGaleria + '</div>' +
     '<div class="informacao-pagina-produto"><span class="categoria-produto">' + produto.categoria + '</span><h1>' + produto.nome + '</h1><p>' + produto.descricao + '</p>' +
     '<div class="linha-preco-pagina"><strong class="preco-pagina-produto">' + formatarPreco(produto.preco) + '</strong>' + seloNegociacao + '</div>' +
     '<div class="disponibilidade' + disponibilidade + '"><i class="fa-solid fa-circle" aria-hidden="true"></i> ' + textoDisponibilidade + '</div>' +

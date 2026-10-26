@@ -1,82 +1,41 @@
 [
   {
-    "id": "fone-bluetooth",
-    "nome": "Auscultadores Bluetooth",
+    "id": "iphone-7-plus",
+    "nome": "IPhone 7 Plus 32GB",
     "categoria": "Eletrónica",
-    "preco": 18500,
-    "negociavel": true,
-    "disponivel": true,
-    "descricao": "Som nítido, ligação sem fios e bateria para acompanhar o teu dia. Inclui cabo de carregamento.",
-    "imagem": "assets/images/produtos/headphones.jpg"
-  },
-  {
-    "id": "candeeiro",
-    "nome": "Candeeiro de mesa",
-    "categoria": "Casa",
-    "preco": 12000,
+    "preco": 80000,
     "negociavel": false,
     "disponivel": true,
-    "descricao": "Candeeiro minimalista para dar uma luz confortável ao teu espaço de trabalho ou leitura.",
-    "imagem": "assets/images/produtos/table-lamp.jpg"
+    "descricao": "Bateria 78%🔋 Tudo Operacional✅ Não Restaura❌",
+    "imagens": [
+      "Images/iphone_7_plus/WhatsApp Image 2026-10-23 at 13.39.48.jpeg",
+      "Images/iphone_7_plus/WhatsApp Image 2026-10-23 at 13.39.49.jpeg"
+    ]
   },
   {
-    "id": "mochila-urbana",
-    "nome": "Mochila urbana",
-    "categoria": "Acessórios",
-    "preco": 22000,
-    "negociavel": true,
-    "disponivel": true,
-    "descricao": "Mochila espaçosa e resistente, com compartimento para portátil e bolsos de fácil acesso.",
-    "imagem": "assets/images/produtos/urban-backpack.jpg"
-  },
-  {
-    "id": "tenis-corrida",
-    "nome": "Ténis de corrida",
-    "categoria": "Desporto",
-    "preco": 32000,
-    "negociavel": false,
-    "disponivel": false,
-    "descricao": "Leves e confortáveis, com sola aderente para treinos e caminhadas. Tamanho 42.",
-    "imagem": "assets/images/produtos/running-shoes.jpg"
-  },
-  {
-    "id": "camisa-linho",
-    "nome": "Camisa de linho",
-    "categoria": "Moda",
-    "preco": 16000,
-    "negociavel": true,
-    "disponivel": true,
-    "descricao": "Camisa fresca de corte casual. Uma peça versátil para os dias mais quentes.",
-    "imagem": "assets/images/produtos/linen-shirt.jpg"
-  },
-  {
-    "id": "relogio-digital",
-    "nome": "Relógio digital",
-    "categoria": "Acessórios",
-    "preco": 27500,
-    "negociavel": false,
-    "disponivel": true,
-    "descricao": "Relógio digital prático com alarme, cronómetro e resistência a salpicos.",
-    "imagem": "assets/images/produtos/digital-watch.jpg"
-  },
-  {
-    "id": "coluna-portatil",
-    "nome": "Coluna portátil",
+    "id": "iphone-12-pro",
+    "nome": "IPhone 12 Pro 128GB",
     "categoria": "Eletrónica",
-    "preco": 24000,
-    "negociavel": true,
-    "disponivel": true,
-    "descricao": "Coluna compacta com som envolvente para ouvires música em casa ou com amigos.",
-    "imagem": "assets/images/produtos/portable-speaker.jpg"
-  },
-  {
-    "id": "vaso-ceramica",
-    "nome": "Vaso de cerâmica",
-    "categoria": "Casa",
-    "preco": 8500,
+    "preco": 365000,
     "negociavel": false,
     "disponivel": true,
-    "descricao": "Vaso artesanal de acabamento mate, ideal para plantas pequenas ou como peça decorativa.",
-    "imagem": "assets/images/produtos/ceramic-planter.jpg"
+    "descricao": "Bateria 77%🔋 Tudo Operacional✅ Nunca Foi Aberto✅",
+    "imagens": [
+      "Images/iphone_12_pro/WhatsApp Image 2026-10-23 at 20.53.43 (1).jpeg",
+      "Images/iphone_12_pro/WhatsApp Image 2026-10-23 at 20.53.43.jpeg"
+    ]
+  },
+  {
+    "id": "iphone-17-pro",
+    "nome": "Iphone 17 pro 512GB",
+    "categoria": "Eletrónica",
+    "preco": 1135000,
+    "negociavel": false,
+    "disponivel": true,
+    "descricao": "Bateria 92%🔋 Tudo operacional ✅ Nunca foi aberto✅",
+    "imagens": [
+      "Images/iphone_17_pro/WhatsApp Image 2026-10-23 at 20.45.32.jpeg",
+      "Images/iphone_17_pro/WhatsApp Image 2026-10-23 at 20.45.31.jpeg"
+    ]
   }
 ]
